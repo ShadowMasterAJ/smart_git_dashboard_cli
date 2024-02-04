@@ -1,0 +1,23 @@
+{
+  "name": "git-dashboard",
+  "version": "1.0.0",
+  "description": "A Git dashboard for managing repositories from the command line",
+  "bin": "./bin/git-dashboard.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "git",
+    "dashboard"
+  ],
+  "author": "Arnav Jaiswal",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "commander": "^12.0.0",
+    "figlet": "^1.7.0",
+    "simple-git": "^3.22.0",
+    "table-layout": "^3.0.2"
+  }
+}
