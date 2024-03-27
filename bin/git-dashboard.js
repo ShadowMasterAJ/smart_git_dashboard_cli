@@ -1,22 +1,26 @@
 #!/usr/bin/env node
 
 import { program } from 'commander';
-import { checkStatus, gitInfo, listCommits } from '../src/commands/index.js';
+import { checkStatus, gitInfo, listCommits, startChatbot } from '../src/commands/index.js';
 import createLogger from '../src/utils/logger.js';
 import chalk from 'chalk';
 import figlet from 'figlet';
+import { config } from 'dotenv';
+config();
+
+
 const logger = createLogger('git-dashboard');
 
 // Stylish header for the CLI tool
-const header = chalk.blue
-    .bold(figlet.textSync('Github Dashboard', {
-        font: 'Poison',
+const header = chalk.blue.bold
+    .bold(figlet.textSync('Smart Github Dashboard', {
+        font: 'Shadow',
         horizontalLayout: 'default',
         verticalLayout: 'default',
     }));
-const header2 = chalk.blue
+const header2 = chalk.cyan.bold
     .bold(figlet.textSync('By Arnav Jaiswal', {
-        font: 'Thick',
+        font: 'Small Shadow',
         horizontalLayout: 'default',
         verticalLayout: 'default',
     }));
@@ -24,6 +28,13 @@ const header2 = chalk.blue
 program
     .version('1.0.0')
     .description('A Git dashboard for managing repositories from the command line');
+
+program
+    .command('chat')
+    .description('Start an AI chatbot session to interact with your GitHub repo.')
+    .action(
+        startChatbot
+    );
 
 program
     .command('git-info')
